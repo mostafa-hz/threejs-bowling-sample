@@ -21,11 +21,10 @@
 
 	// WebGL Renderer
 	var renderer = new THREE.WebGLRenderer({antialias: true });
-	renderer.setClearColor(0x6faf46, 1);
+	renderer.setClearColor(0x1c3b6d, 1);
 	renderer.setSize(WIDTH, HEIGHT);
-	renderer.shadowMapEnabled = true;
-	renderer.shadowMapSoft = true;
-	renderer.shadowMapType = THREE.PCFSoftShadowMap;
+	renderer.shadowMap.enabled = true;
+	renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
 	// Physijs Scene
 	scene = new Physijs.Scene();
@@ -42,9 +41,9 @@
 	//Orthographic Camera
 	var aspect = window.innerWidth / window.innerHeight;
 	var d = 400;
-	var camera = new THREE.OrthographicCamera( - d * aspect, d * aspect, d, - d, 1, 2500 );
+	var camera = new THREE.PerspectiveCamera(45,aspect,1,10000 );
 	//var camera = new THREE.OrthographicCamera( 1000 / -2, 1000 / 2, 800 / 2, 800 / -2, 1, 1000 );
-	camera.position.set( 800, 400, 800 );
+	camera.position.set( 0, 400, -800 );
 	camera.lookAt( new THREE.Vector3(0,0,0) ); // or the origin
 	scene.add(camera);
 
@@ -79,7 +78,7 @@
 	    renderer.render(scene, camera);
         requestAnimationFrame(render);
 	}
-	$container.append(renderer.domElement); 
+	$container.append(renderer.domElement);
 	render();
 
 

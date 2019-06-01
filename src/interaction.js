@@ -23,12 +23,12 @@
     var END_EVENT = Modernizr.touch ? 'touchend' : 'mouseup';
 
 
-    var material = new THREE.MeshBasicMaterial( {color: 0xcccccc, side: THREE.FrontSide} );
+    var material = new THREE.MeshBasicMaterial( {color: 0x1c3b6d, side: THREE.FrontSide} );
     var geometry = new THREE.PlaneGeometry( 3000, 3000, 1,1 );
     var plane = new THREE.Mesh(geometry, material);
     plane.rotation.x = Math.PI / -2;
-    plane.position.y = 5;
-    plane.visible = false;
+    plane.position.y = -2;
+    plane.visible = true;
     app.scene.add(plane);
 
 

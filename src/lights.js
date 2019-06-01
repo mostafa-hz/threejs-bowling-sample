@@ -2,17 +2,20 @@
 
     //Ambient Light
     var light = new THREE.AmbientLight(0x333333); // soft white light
-    // app.scene.add(light);
+    app.scene.add(light);
 
     // Directional Light
-    var directionalLight = new THREE.DirectionalLight( 0xffffff, 1 );
-    directionalLight.position.set( 200, 300, 200 );
+    var directionalLight = new THREE.DirectionalLight( 0xffffff, 1 ,1000,1000);
+    directionalLight.position.set( 0, 200, -200 );
     directionalLight.castShadow = true;
-    directionalLight.shadowDarkness = 0.4;
-    directionalLight.shadowCameraNear = 10;
-    directionalLight.shadowCameraFar = 800;
-    directionalLight.shadowCameraVisible = false;
-    directionalLight.shadowCameraFov = 60;
+    directionalLight.shadow.camera.near = 0.1;
+    directionalLight.shadow.camera.far = 500;
+    directionalLight.shadow.camera.right = 5000;
+    directionalLight.shadow.camera.left = -5000;
+    directionalLight.shadow.camera.top = 5000;
+    directionalLight.shadow.camera.bottom = -5000;
+    directionalLight.shadow.mapSize.width = 4096;
+    directionalLight.shadow.mapSize.height = 4096;
     app.scene.add( directionalLight );
 
         //Light Helper
