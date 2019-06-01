@@ -77,6 +77,7 @@
 
         var vector = powerPoint.sub(character.position);
         character.applyCentralImpulse(vector.negate().multiplyScalar(impulseScalar));
+        app.playThrowSound();
     };
 
     app.container.on(START_EVENT, mouseDownHandler);

@@ -15,7 +15,7 @@
 	// Sphere
 	var sphereMaterial = Physijs.createMaterial(new THREE.MeshPhongMaterial({color: color,map:ballTexture, side: THREE.FrontSide}), 1, 1);
 	var sphereGeometry = new THREE.SphereGeometry(radius, segments, rings)
-	
+
 	var sphere = new Physijs.SphereMesh(sphereGeometry, sphereMaterial, mass);
 	sphere.setLinearFactor(new THREE.Vector3( 0, 0, 0 )); // only move on X and Z axis
 
@@ -24,7 +24,7 @@
 	sphere.position.x = 0;
 	sphere.castShadow = true;
 	//sphere.setDamping(1, 1);
-	
+
 	app.character = sphere;
 	app.scene.add(sphere);
 
